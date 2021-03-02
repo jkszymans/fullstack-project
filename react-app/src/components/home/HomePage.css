@@ -1,0 +1,30 @@
+.accounts-navbar {
+  margin: auto;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  min-width: 100%;
+  min-height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.start-div {
+  position: fixed;
+  left: 50px;
+  top: 10%;
+  height: 10%;
+  width: 20%;
+  justify-content: center;
+}
+
+.plan-form {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+  height: 100%;
+}
