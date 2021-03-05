@@ -11,6 +11,7 @@ class HomePage extends Component {
     this.state = {
       logged_in: false,
       username: "",
+      userid: "",
       current_form: "home_form",
     };
   }
@@ -35,6 +36,7 @@ class HomePage extends Component {
         console.log(resp.username);
         this.setState({
           username: resp.username,
+          userid: resp.id,
           logged_in: true,
           current_form: "menu_form",
         });
@@ -56,8 +58,6 @@ class HomePage extends Component {
     });
   };
 
-  check_logged;
-
   handleFormChange = (e, form_name) => {
     if (!this.state.logged_in) {
       window.location.href = "/login";
@@ -67,6 +67,7 @@ class HomePage extends Component {
   };
 
   render() {
+    console.log("render");
     let form;
     if (this.state.logged_in) {
       form = (
@@ -104,7 +105,7 @@ class HomePage extends Component {
                 size="lg"
                 className="start-btn btn-block"
                 color="danger"
-                onClick={this.handleFormChange.bind("menu_form")}
+                onClick={(e) => this.handleFormChange(e, "menu_form")}
               >
                 Go!
               </Button>
@@ -117,9 +118,12 @@ class HomePage extends Component {
           <MenuContent handleFormChange={this.handleFormChange} />
         </>
       ),
-      menu_form: (
+      create_plan_form: (
         <>
-          <CreatePlan handleFormChange={this.handleFormChange} />
+          <CreatePlan
+            handleFormChange={this.handleFormChange}
+            userid={this.state.userid}
+          />
         </>
       ),
     };

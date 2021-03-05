@@ -25,8 +25,8 @@ class TrainingSerializer(serializers.ModelSerializer):
 
 
 class TrainingPlanSerializer(serializers.ModelSerializer):
-    training_days = TrainingSerializer(many=True)
+    # training_days = TrainingSerializer(many=True)
 
     class Meta:
         model = TrainingPlan
-        fields = ("user", "start_date", "description", "training_days")
+        fields = ("id", "plan_name", "user", "description")
