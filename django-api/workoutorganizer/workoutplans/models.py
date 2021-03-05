@@ -20,7 +20,7 @@ class TrainingPlan(models.Model):
         on_delete=models.CASCADE,
     )
     plan_name = models.CharField(max_length=30)
-    start_date = models.DateField()
+    # start_date = models.DateField()
     description = models.TextField(blank=True, null=True)
 
     def __str__(self):
