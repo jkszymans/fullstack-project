@@ -5,28 +5,28 @@ from .models import TrainingPlan, TrainingDay, Exercise, Set
 class SetSerializer(serializers.ModelSerializer):
     class Meta:
         model = Set
-        fields = "__all__"
+        fields = ("repetitions",)
 
 
 class ExerciseSerializer(serializers.ModelSerializer):
-    sets = SetSerializer(many=True, read_only=True)
+    sets = SetSerializer(many=True)
 
     class Meta:
         model = Exercise
-        fields = "__all__"
+        fields = ("exercise_name", "rpe", "sets")
 
 
 class TrainingSerializer(serializers.ModelSerializer):
-    exercises = ExerciseSerializer(many=True, read_only=True)
+    exercises = ExerciseSerializer(many=True)
 
     class Meta:
         model = TrainingDay
-        fields = "__all__"
+        fields = ("date", "time", "exercises")
 
 
 class TrainingPlanSerializer(serializers.ModelSerializer):
-    training_days = TrainingSerializer(many=True, read_only=True)
+    # training_days = TrainingSerializer(many=True)
 
     class Meta:
         model = TrainingPlan
-        fields = "__all__"
+        fields = ("id", "plan_name", "user", "description")

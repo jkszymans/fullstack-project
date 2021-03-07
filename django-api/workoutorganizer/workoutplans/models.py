@@ -2,19 +2,15 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-WEEKDAYS = (
-    ("Monday", "Monday"),
-    ("Tuesday", "Tuesday"),
-    ("Wednesday", "Wednesday"),
-    ("Thursday", "Thursday"),
-    ("Friday", "Friday"),
-    ("Saturday", "Saturday"),
-    ("Sunday", "Sunday"),
-)
-
-
-# class Days(models.Model):
-#     day = models.CharField(max_length=8)
+# WEEKDAYS = (
+#     ("Monday", "Monday"),
+#     ("Tuesday", "Tuesday"),
+#     ("Wednesday", "Wednesday"),
+#     ("Thursday", "Thursday"),
+#     ("Friday", "Friday"),
+#     ("Saturday", "Saturday"),
+#     ("Sunday", "Sunday"),
+# )
 
 
 class TrainingPlan(models.Model):
@@ -24,9 +20,7 @@ class TrainingPlan(models.Model):
         on_delete=models.CASCADE,
     )
     plan_name = models.CharField(max_length=30)
-    start_date = models.DateField()
-    duration = models.PositiveSmallIntegerField()
-    # week_days = models.ManyToManyField(Days)
+    # start_date = models.DateField()
     description = models.TextField(blank=True, null=True)
 
     def __str__(self):
@@ -49,8 +43,6 @@ class Exercise(models.Model):
         TrainingDay, related_name="exercises", on_delete=models.CASCADE
     )
     exercise_name = models.CharField(max_length=30)
-    # sets = models.PositiveSmallIntegerField()
-    # reps = models.PositiveSmallIntegerField()
     rpe = models.PositiveSmallIntegerField()
 
     def __str__(self):
