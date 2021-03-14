@@ -10,6 +10,10 @@ django = "*"
 djangorestframework = "*"
 django-cors-headers = "*"
 djangorestframework-jwt = "*"
+waitress = "*"
+gunicorn = "*"
+psycopg2 = "*"
+
 
 [requires]
 python_version = "3.8"
